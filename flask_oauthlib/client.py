@@ -475,7 +475,7 @@ class OAuthRemoteApp(object):
         resp, content = self.http_request(
             uri, headers, data=to_bytes(body, self.encoding), method=method
         )
-        return OAuthResponse(resp, content, self.content_type)
+        return OAuthResponse(resp, content, content_type or self.content_type)
 
     def authorize(self, callback=None, state=None, **kwargs):
         """
